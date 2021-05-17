@@ -54,12 +54,40 @@ def num_translate_adv(num, list, numi):
     else:
         return list.get(num)
 
+e = 0
 
 while True:
-    get_num_n = input('Введите цифру по-английски от 0 до 10  ')
+    get_num_n = input('Введите цифру по-английски от 0 до 10 (для выхода: n)  ')
     for i, val in enumerate(list_num):
-        if get_num_n.lower() == list_num[i][0]:
-            print(num_translate_adv(i,list_num, get_num_n))
-        elif get_num_n == 'n':
+        if get_num_n == 'n':
+            e = 1
             break
+        elif get_num_n.lower() == list_num[i][0]:
+            print(num_translate_adv(i,list_num, get_num_n))
+    if e == 1:
+        break
 
+"""
+3. Написать функцию thesaurus(), принимающую в качестве аргументов имена сотрудников и возвращающую словарь, 
+в котором ключи — первые буквы имен, а значения — списки, содержащие имена, начинающиеся с соответствующей буквы. 
+Например:
+>>> >>> thesaurus("Иван", "Мария", "Петр", "Илья")
+{
+    "И": ["Иван", "Илья"], 
+    "М": ["Мария"], "П": ["Петр"]
+}
+Подумайте: полезен ли будет вам оператор распаковки? Сможете ли вы вернуть отсортированный по ключам словарь?
+"""
+
+
+
+def thesaurus(name):
+    list_names = {}
+    for i, val in enumerate(name):
+        if list_names.get(val[0]):
+            list_names[val[0]].append(val)
+        else:
+            list_names[val[0]] = list(name[i].split())
+    print(list_names)
+
+thesaurus(['Мария', 'Светлана', 'Катерина', 'Любовь', 'Михаил', 'Сергей', 'Кирилл', 'Лариса'])
