@@ -8,11 +8,12 @@ num_translate("eight")
 Если перевод сделать невозможно, вернуть None. Подумайте, как и где лучше хранить информацию, необходимую для
 перевода: какой тип данных выбрать, в теле функции или снаружи.
 """
+
 def num_translate(num, list):
     if list.get(num):
-        print(f'{list[num][0]} по-русски {list_num[num][1]}')
+        return f'{list[num][0]} по-русски {list_num[num][1]}'
     else:
-        print(list.get(num))
+        return list.get(num)
 
 list_num = {
     0: ['zero', 'ноль'],
@@ -31,7 +32,34 @@ list_num = {
 while True:
     get_num = input('Введите число от 0 до 10 (для выхода: n) ')
     if get_num.isdigit():
-        num_translate(int(get_num),list_num)
+        print(num_translate(int(get_num),list_num))
     elif get_num == 'n':
         break
+
+"""
+2. * (вместо задачи 1) Доработать предыдущую функцию num_translate_adv(): реализовать корректную работу с числительными, 
+начинающимися с заглавной буквы. Например:
+num_translate_adv("One")
+"Один"
+num_translate_adv("two")
+"два"
+"""
+
+def num_translate_adv(num, list, numi):
+    if list.get(num):
+        if numi[0].isupper():
+            return f'{list[num][0].capitalize()} по-русски {list_num[num][1].capitalize()}'
+        else:
+            return f'{list[num][0]} по-русски {list_num[num][1]}'
+    else:
+        return list.get(num)
+
+
+while True:
+    get_num_n = input('Введите цифру по-английски от 0 до 10  ')
+    for i, val in enumerate(list_num):
+        if get_num_n.lower() == list_num[i][0]:
+            print(num_translate_adv(i,list_num, get_num_n))
+        elif get_num_n == 'n':
+            break
 
