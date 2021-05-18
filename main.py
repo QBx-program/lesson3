@@ -60,7 +60,8 @@ while True:
 # Задача 3
 
 
-def thesaurus(name):
+def thesaurus(*args):
+    name =list(args)
     list_names = {}
     for i, val in enumerate(name):
         if list_names.get(val[0]):
@@ -70,7 +71,7 @@ def thesaurus(name):
     print(list_names)
 
 
-thesaurus(['Мария', 'Светлана', 'Катерина', 'Любовь', 'Михаил', 'Сергей', 'Кирилл', 'Лариса'])
+thesaurus('Мария', 'Светлана', 'Катерина', 'Любовь', 'Михаил', 'Сергей', 'Кирилл', 'Лариса')
 
 
 # Задача 4
