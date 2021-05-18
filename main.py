@@ -9,11 +9,13 @@ num_translate("eight")
 перевода: какой тип данных выбрать, в теле функции или снаружи.
 """
 
+
 def num_translate(num, list):
     if list.get(num):
         return f'{list[num][0]} по-русски {list_num[num][1]}'
     else:
         return list.get(num)
+
 
 list_num = {
     0: ['zero', 'ноль'],
@@ -32,7 +34,7 @@ list_num = {
 while True:
     get_num = input('Введите число от 0 до 10 (для выхода: n) ')
     if get_num.isdigit():
-        print(num_translate(int(get_num),list_num))
+        print(num_translate(int(get_num), list_num))
     elif get_num == 'n':
         break
 
@@ -45,6 +47,7 @@ num_translate_adv("two")
 "два"
 """
 
+
 def num_translate_adv(num, list, numi):
     if list.get(num):
         if numi[0].isupper():
@@ -53,6 +56,7 @@ def num_translate_adv(num, list, numi):
             return f'{list[num][0]} по-русски {list_num[num][1]}'
     else:
         return list.get(num)
+
 
 e = 0
 
@@ -63,7 +67,7 @@ while True:
             e = 1
             break
         elif get_num_n.lower() == list_num[i][0]:
-            print(num_translate_adv(i,list_num, get_num_n))
+            print(num_translate_adv(i, list_num, get_num_n))
     if e == 1:
         break
 
@@ -80,7 +84,6 @@ while True:
 """
 
 
-
 def thesaurus(name):
     list_names = {}
     for i, val in enumerate(name):
@@ -90,4 +93,39 @@ def thesaurus(name):
             list_names[val[0]] = list(name[i].split())
     print(list_names)
 
+
 thesaurus(['Мария', 'Светлана', 'Катерина', 'Любовь', 'Михаил', 'Сергей', 'Кирилл', 'Лариса'])
+
+"""
+4. * (вместо задачи 3) Написать функцию thesaurus_adv(), принимающую в качестве аргументов строки в формате 
+«Имя Фамилия» и возвращающую словарь, в котором ключи — первые буквы фамилий, а значения — словари, реализованные 
+по схеме предыдущего задания и содержащие записи, в которых фамилия начинается с соответствующей буквы. Например:
+>>> >>> thesaurus_adv("Иван Сергеев", "Инна Серова", "Петр Алексеев", "Илья Иванов", "Анна Савельева")
+{
+    "А": {
+        "П": "Петр Алексеев"
+    }, 
+    "С": {
+        "И": ["Иван Сергеев", "Инна Серова"], 
+        "А": ["Анна Савельева"]
+    }
+}
+"""
+
+
+def thesaurus_adv(get_list):
+    fam = {}
+    for i, val in enumerate(get_list):
+        split_name = list(str(val).split())
+        if not fam.get(split_name[1][0]):
+            fam[split_name[1][0]] = {}
+        if not fam[split_name[1][0]].get(split_name[0][0]):
+            fam[split_name[1][0]][split_name[0][0]] = []
+        fam[split_name[1][0]][split_name[0][0]].append(str(get_list[i]))
+    print(fam)
+
+
+thesaurus_adv(['Станислав Сапожник', 'Игорь Бабичев', 'Мария Сергеева', 'Светлана Ковалева', 'Катерина Петрова',
+               'Любовь Михайлова', 'Михаил Сергеев', 'Сергей Блинкен', 'Кирилл Ортынский', 'Лариса Потеевна',
+               'Михаил Архангельский', 'Сергей Титов', 'Игорь Тараканов'])
+
