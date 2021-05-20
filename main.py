@@ -81,10 +81,8 @@ def thesaurus_adv(get_list):
     fam = {}
     for i, val in enumerate(get_list):
         split_name = list(str(val).split())
-        if not fam.get(split_name[1][0]):
-            fam[split_name[1][0]] = {}
-        if not fam[split_name[1][0]].get(split_name[0][0]):
-            fam[split_name[1][0]][split_name[0][0]] = []
+        fam.setdefault(split_name[1][0],{})
+        fam[split_name[1][0]].setdefault(split_name[0][0], [])
         fam[split_name[1][0]][split_name[0][0]].append(str(get_list[i]))
     return fam
 
