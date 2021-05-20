@@ -104,6 +104,7 @@ print(fam_list_sort)
 """
 
 import random
+from random import choice
 
 
 def get_jokes(n, w_1, w_2, w_3, n_r):
@@ -119,10 +120,7 @@ def get_jokes(n, w_1, w_2, w_3, n_r):
     text = []
     for i in range(0, n):
         if len(w_1) != 0 and len(w_2) != 0 and len(w_3) != 0:
-            ww_1 = w_1[random.randrange(0, len(w_1))]
-            ww_2 = w_2[random.randrange(0, len(w_2))]
-            ww_3 = w_3[random.randrange(0, len(w_3))]
-            text_n = f'{ww_1} {ww_2} {ww_3}'
+            text_n = f'{choice(w_1)} {choice(w_2)} {choice(w_3)}'
             text.append(text_n)
             if n_r == True:
                 w_1.remove(ww_1)
