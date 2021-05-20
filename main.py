@@ -77,8 +77,9 @@ thesaurus('Мария', 'Светлана', 'Катерина', 'Любовь', 
 # Задача 4
 
 
-def thesaurus_adv(get_list):
+def thesaurus_adv(*args):
     fam = {}
+    get_list = args
     for i, val in enumerate(get_list):
         split_name = list(str(val).split())
         fam.setdefault(split_name[1][0],{})
@@ -88,9 +89,9 @@ def thesaurus_adv(get_list):
 
 
 fam_list = thesaurus_adv(
-    ['Станислав Сапожник', 'Игорь Бабичев', 'Мария Сергеева', 'Светлана Ковалева', 'Катерина Петрова',
+    'Станислав Сапожник', 'Игорь Бабичев', 'Мария Сергеева', 'Светлана Ковалева', 'Катерина Петрова',
      'Любовь Михайлова', 'Михаил Сергеев', 'Сергей Блинкен', 'Кирилл Ортынский', 'Лариса Потеевна',
-     'Михаил Архангельский', 'Сергей Титов', 'Игорь Тараканов'])
+     'Михаил Архангельский', 'Сергей Титов', 'Игорь Тараканов')
 print(fam_list)
 fam_list_sort = {}
 for i, val in (sorted(fam_list.items())):
