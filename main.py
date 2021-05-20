@@ -168,3 +168,4 @@ while True:
                 print(get_jokes(int(num), nouns, adverbs, adjectives, not_repeat))
                 break
         break
+help(get_jokes)
