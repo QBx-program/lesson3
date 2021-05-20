@@ -122,7 +122,7 @@ def get_jokes(n, w_1, w_2, w_3, n_r):
         if len(w_1) != 0 and len(w_2) != 0 and len(w_3) != 0:
             text_n = f'{choice(w_1)} {choice(w_2)} {choice(w_3)}'
             text.append(text_n)
-            if n_r == True:
+            if n_r.find('/'):
                 w_1.remove(text_n.split(' ')[0])
                 w_2.remove(text_n.split(' ')[1])
                 w_3.remove(text_n.split(' ')[2])
@@ -148,20 +148,17 @@ adjectives = ["веселый", "яркий", "зеленый", "утопичн�
 """
 
 num = ''
-not_repeat = False
 while True:
     attempt = input('Введите количество шуток (если после цифры поставите / , то слова в шутках не будут повторяться ')
     if not attempt[0].isdigit():
         print('Введите сначала цифру, потом: / - если не хотите повторений')
     else:
         attempt = attempt + 'a'
-        if attempt.find('/') > - 1:
-            not_repeat = True
         for i in attempt:
             if i.isdigit():
                 num = num + str(i)
             else:
-                print(get_jokes(int(num), nouns, adverbs, adjectives, not_repeat))
+                print(get_jokes(int(num), nouns, adverbs, adjectives, attempt))
                 break
         break
 #help(get_jokes)
