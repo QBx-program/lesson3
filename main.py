@@ -79,12 +79,11 @@ thesaurus('Мария', 'Светлана', 'Катерина', 'Любовь', 
 
 def thesaurus_adv(*args):
     fam = {}
-    get_list = args
-    for i, val in enumerate(get_list):
+    for i, val in enumerate(args):
         split_name = list(str(val).split())
         fam.setdefault(split_name[1][0],{})
         fam[split_name[1][0]].setdefault(split_name[0][0], [])
-        fam[split_name[1][0]][split_name[0][0]].append(str(get_list[i]))
+        fam[split_name[1][0]][split_name[0][0]].append(str(args[i]))
     return fam
 
 
