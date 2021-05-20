@@ -123,9 +123,9 @@ def get_jokes(n, w_1, w_2, w_3, n_r):
             text_n = f'{choice(w_1)} {choice(w_2)} {choice(w_3)}'
             text.append(text_n)
             if n_r == True:
-                w_1.remove(ww_1)
-                w_2.remove(ww_2)
-                w_3.remove(ww_3)
+                w_1.remove(text_n.split(' ')[0])
+                w_2.remove(text_n.split(' ')[1])
+                w_3.remove(text_n.split(' ')[2])
         else:
             break
     return text
@@ -164,4 +164,4 @@ while True:
                 print(get_jokes(int(num), nouns, adverbs, adjectives, not_repeat))
                 break
         break
-help(get_jokes)
+#help(get_jokes)
