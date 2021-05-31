@@ -109,7 +109,7 @@ def get_jokes(n, w_1, w_2, w_3, n_r):
         if len(w_1) != 0 and len(w_2) != 0 and len(w_3) != 0:
             text_n = f'{choice(w_1)} {choice(w_2)} {choice(w_3)}'
             text.append(text_n)
-            if n_r.find('/'):
+            if n_r.find('/') > -1:
                 w_1.remove(text_n.split(' ')[0])
                 w_2.remove(text_n.split(' ')[1])
                 w_3.remove(text_n.split(' ')[2])
